@@ -19,6 +19,10 @@ namespace IT_praktika_10
     {
       InitializeComponent();
     }
+    private void ClearColor(PaintEventArgs e)
+    {
+      e.Graphics.Clear(Color.White);
+    }
 
     private void Form1_Paint(object sender, PaintEventArgs e)
     {
@@ -28,17 +32,18 @@ namespace IT_praktika_10
 
     private void Form1_Load(object sender, EventArgs e)
     {
-      x1 = ClientSize.Width / 4;
-      y1 = ClientSize.Height / 2;
-      x2 = ClientSize.Width / 2;
-      y2 = ClientSize.Height / 2;
+      a = 0;
+      x1 = 100;
+      y1 = 100;
+      x2 = 100;
+      y2 = 100;
     }
 
     private void timer1_Tick(object sender, EventArgs e)
     {
-      a += 0.1;
-      x2 = x1 + (int)(Math.Cos(a));
-      y2 = y1 + (int)(Math.Cos(a));
+      a -= 0.1;
+      x1 += (int)(10 * Math.Cos(a));
+      y1 += (int)(10 * Math.Cos(a));
       Invalidate();
     }
   }
